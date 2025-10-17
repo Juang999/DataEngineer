@@ -7,41 +7,27 @@
 
 <h3>Transform Feature</h3>
 <ul>
-    <li>Intial Load
+    <li>Dimension
         <ul>
-            <li>Dimension
-                <ul>
-                    <li>Transform data dimension entity</li>
-                    <li>Transform data dimension product data</li>
-                    <li>Transform data dimension customers</li>
-                    <li>Transform data dimension sites</li>
-                    <li>Transform data dimension currency</li>
-                    <li>Transform data dimension groups</li>
-                    <li>Transform data dimension pricelist</li>
-                    <li>Transform data dimension locations</li>
-                    <li>Transform data dimension carbon copy</li>
-                    <li>Transform data dimension fund</li>
-                </ul>
-            </li>
-            <li>Fact
-                <ul>
-                    <li>Transform data fact sales shipment</li>
-                </ul>
-            </li>
+            <li>Transform data dimension entity</li>
+            <li>Transform data dimension product data</li>
+            <li>Transform data dimension customers</li>
+            <li>Transform data dimension sites</li>
+            <li>Transform data dimension currency</li>
+            <li>Transform data dimension groups</li>
+            <li>Transform data dimension pricelist</li>
+            <li>Transform data dimension locations</li>
+            <li>Transform data dimension carbon copy</li>
+            <li>Transform data dimension fund</li>
         </ul>
     </li>
-    <li>Incremental Load
+    <li>Fact
         <ul>
-            <li>Dimension
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Fact
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
+            <li>Transform data fact sales shipment</li>
+            <li>Transform data fact cash in</li>
+            <li>Transform data fact cash out</li>
         </ul>
     </li>
 </ul>
+
+<h3>DAGs file</h3>
