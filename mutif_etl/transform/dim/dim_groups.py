@@ -5,14 +5,19 @@ logger = logging.getLogger(__name__)
 
 def transform_data_groups(data):
     try:
-        logger.info("Start transforming data group...")
+        if len(data) > 0:
+            logger.info("Start transforming data group...")
 
-        cleaned_data = cleansing_data(data)
-        result = sort_data(cleaned_data)
+            cleaned_data = cleansing_data(data)
+            result = sort_data(cleaned_data)
 
-        logger.info("Transformed data group...")
+            logger.info("Transformed data group...")
 
-        return result
+            return result
+        else:
+            print("data doesn't exist")
+            exit()
+
     except Exception as error:
         logger.error(error)
 

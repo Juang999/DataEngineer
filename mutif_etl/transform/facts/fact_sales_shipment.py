@@ -1,7 +1,11 @@
 import polars as pl
 
 def transform_data_shipment(df):
-    result = sort_data_shipment(df)
+    if len(df) == 0:
+        print("Data doesn't exist")
+        exit()
+    else:
+        result = sort_data_shipment(df)
 
     return result
 

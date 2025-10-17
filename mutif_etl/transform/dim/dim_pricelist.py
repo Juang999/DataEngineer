@@ -1,9 +1,13 @@
 import polars as pl
 
 def transform_data_pricelist(df):
-    result = cleansing_data(df)
+    if len(df) > 0:
+        result = cleansing_data(df)
 
-    return result
+        return result
+    else:
+        print("data doesn't exist")
+        exit()
 
 def cleansing_data(df):
     result = df.pipe(lambda df:

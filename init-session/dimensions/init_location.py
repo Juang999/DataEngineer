@@ -1,7 +1,7 @@
 from pathlib import Path
 from environment import Environment
 from mutif_etl.extract.extract_postgresql import extract_data_postgresql
-from mutif_etl.transform.dim_locations import transform_data_location
+from mutif_etl.transform.dim.dim_locations import transform_data_location
 from mutif_etl.load.load_dataframe import load_dataframe
 
 if __name__ == "__main__":

@@ -15,10 +15,11 @@ SELECT
 FROM public.pt_mstr product
 LEFT JOIN public.pl_mstr product_line ON product_line.pl_id = product.pt_pl_id
 LEFT JOIN public.pid_det relation_pricelist ON relation_pricelist.pid_pt_id = product.pt_id
-RIGHT JOIN public.pi_mstr master_pricelist ON master_pricelist.pi_oid = relation_pricelist.pid_pi_oid AND master_pricelist.pi_id IN (103, 202, 304)
+LEFT JOIN public.pi_mstr master_pricelist ON master_pricelist.pi_oid = relation_pricelist.pid_pi_oid AND master_pricelist.pi_id IN (103, 202, 304)
 LEFT JOIN public.pidd_det detail_pricelist ON detail_pricelist.pidd_pid_oid = relation_pricelist.pid_oid AND pidd_payment_type = 9942
 LEFT JOIN public.invc_mstr master_inventory ON master_inventory.invc_pt_id = product.pt_id
 LEFT JOIN PUBLIC.invct_table data_cost ON data_cost.invct_pt_id = product.pt_id
+WHERE pt_add_date > '{created_at}'
 GROUP BY
     product.pt_id,
     pt_dom_id,

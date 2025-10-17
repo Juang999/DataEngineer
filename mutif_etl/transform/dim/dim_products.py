@@ -7,23 +7,23 @@ logger = logging.getLogger(__name__)
     Returns:
         Main function dim_products transform
 """
-def transform_data_products(dataframe_spreadsheet, dataframe_postgresql, condition = {}):
+def transform_data_products(dataframe_spreadsheet, dataframe_postgresql):
     try:
-        logger.info("Start transforming data...")
-        cleaned_data_postgresql = clean_data_postgresql(dataframe_postgresql)
+        if len(dataframe_postgresql) > 0 :
+            logger.info("Start transforming data...")
+            cleaned_data_postgresql = clean_data_postgresql(dataframe_postgresql)
 
-        selected_data_postgresql = select_data_postgresql(cleaned_data_postgresql)
-        selected_data_spreadsheet = select_data_spreadsheet(dataframe_spreadsheet)
+            selected_data_postgresql = select_data_postgresql(cleaned_data_postgresql)
+            selected_data_spreadsheet = select_data_spreadsheet(dataframe_spreadsheet)
 
-        joined_df = join_dataframes(dataframe_spreadsheet=selected_data_spreadsheet, dataframe_postgresql=selected_data_postgresql)
+            joined_df = join_dataframes(dataframe_spreadsheet=selected_data_spreadsheet, dataframe_postgresql=selected_data_postgresql)
 
-        selected_columns = select_spesific_columns(joined_df)
-        #
-        # condition_columns = columns_condition(selected_columns)
-        #
-        # result = condition_columns.sort("created_at")
+            selected_columns = select_spesific_columns(joined_df)
 
-        return selected_columns
+            return selected_columns
+        else :
+            print("data product doesn't exist")
+            exit()
     except Exception as e:
         logger.error(f"Error: {e}")
 

@@ -4,10 +4,14 @@ logger = logging.getLogger(__name__)
 
 def transform_data_entities(df):
     try:
-        logger.info("Start transform data entities...")
-        result = rename_columns(df)
+        if len(df) > 0:
+            logger.info("Start transform data entities...")
+            result = rename_columns(df)
 
-        return result
+            return result
+        else:
+            print("data doesn't exist")
+            exit()
     except Exception as e:
         logger.error(f"Error: {e}")
         raise RuntimeError(f"Error while transforming data entities")
