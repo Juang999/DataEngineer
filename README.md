@@ -26,8 +26,13 @@
             <li>Transform data fact sales shipment</li>
             <li>Transform data fact cash in</li>
             <li>Transform data fact cash out</li>
+            <li>Transform data fact inventory historical</li>
         </ul>
     </li>
 </ul>
 
 <h3>DAGs file</h3>
+<ul>
+    <li>Inventory Save</li>
+    <li>SO Related With Shipment</li>
+</ul>
