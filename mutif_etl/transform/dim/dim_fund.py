@@ -1,9 +1,13 @@
 import polars as pl
 
 def transform_data_fund(df):
-    result = clean_data(df)
+    if len(df) > 0:
+        result = clean_data(df)
 
-    return result
+        return result
+    else:
+        print("data doesn't exist")
+        exit()
 
 def clean_data(df):
     result = df.pipe(lambda df:

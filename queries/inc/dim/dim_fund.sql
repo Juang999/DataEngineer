@@ -10,4 +10,5 @@ SELECT
 	bk_add_by AS created_by,
 	bk_add_date AS created_at
 FROM PUBLIC.bk_mstr bm
+WHERE bk_add_date > '{created_at}'
 ORDER BY bk_id ASC;

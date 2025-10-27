@@ -1,6 +1,6 @@
 import polars as pl
 
-def transform_data_fact_cash_in(df):
+def transform_data_cash_in(df):
     result = clean_data(df)
 
     return result
