@@ -21,5 +21,4 @@ if __name__ == "__main__":
 
     load_dataframe(connection=env_destination_data_warehouse, schema="facts", tablename="fact_inventory_historical", mode="append", df=transformed_data)
 
-    print(env_destination_data_warehouse)
     print(transformed_data)

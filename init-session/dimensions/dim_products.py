@@ -1,4 +1,9 @@
 from pathlib import Path
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
 from environment import Environment
 from mutif_etl.extract.extract_postgresql import extract_data_postgresql
 from mutif_etl.extract.extract_spreadsheet import extract_data_spreadsheet

@@ -10,27 +10,27 @@ with DAG(
 ) as dag:
     etl_dim_sites = BashOperator(
         task_id="etl_dim_sites",
-        bash_command="python /mutif-etl-folder/increment-session/dim/dim_sites.py"
+        bash_command="/home/arthemist666/miniconda3/envs/sales-pipeline/bin/python /mnt/c/Users/User/Project/DataEngineer/increment-session/dim/dim_sites.py"
     )
 
     etl_dim_entities = BashOperator(
         task_id="etl_dim_entities",
-        bash_command="python /mutif-etl-folder/increment-session/dim/dim_entities.py"
+        bash_command="/home/arthemist666/miniconda3/envs/sales-pipeline/bin/python /mnt/c/Users/User/Project/DataEngineer/increment-session/dim/dim_entities.py"
     )
 
     etl_dim_products = BashOperator(
         task_id="etl_dim_products",
-        bash_command="python /mutif-etl-folder/increment-session//dim/dim_products.py"
+        bash_command="/home/arthemist666/miniconda3/envs/sales-pipeline/bin/python /mnt/c/Users/User/Project/DataEngineer/increment-session//dim/dim_products.py"
     )
 
     etl_dim_locations = BashOperator(
         task_id="etl_dim_locations",
-        bash_command="python /mutif-etl-folder/increment-session/dim/dim_locations.py"
+        bash_command="/home/arthemist666/miniconda3/envs/sales-pipeline/bin/python /mnt/c/Users/User/Project/DataEngineer/increment-session/dim/dim_locations.py"
     )
 
     etl_fact_sales_shipment = BashOperator(
         task_id="etl_fact_inventory_historical",
-        bash_command="python /mutif-etl-folder/increment-session/facts/fact_inventory_historical.py"
+        bash_command="/home/arthemist666/miniconda3/envs/sales-pipeline/bin/python /mnt/c/Users/User/Project/DataEngineer/increment-session/facts/fact_inventory_historical.py"
     )
 
     etl_dim_sites >> etl_dim_entities >> etl_dim_products >> etl_dim_locations >> etl_fact_sales_shipment
