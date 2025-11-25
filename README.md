@@ -27,6 +27,7 @@
             <li>Transform data fact cash in</li>
             <li>Transform data fact cash out</li>
             <li>Transform data fact inventory historical</li>
+            <li>Transform data fact inventory receipt report</li>
         </ul>
     </li>
 </ul>
