@@ -14,8 +14,8 @@ if __name__ == '__main__':
 
     env_exapro = config.source_exapro
     env_data_warehouse = config.env_prod_destination_warehouse
-    file_marker_query = Path(__file__).parent.parent.parent.joinpath(r"queries\inc\marker\dim\dim_entities.sql")
-    file_dim_query = Path(__file__).parent.parent.parent.joinpath(r"queries\inc\dim\dim_entities.sql")
+    file_marker_query = Path(__file__).parent.parent.parent.joinpath(r"queries/inc/marker/dim/dim_entities.sql")
+    file_dim_query = Path(__file__).parent.parent.parent.joinpath(r"queries/inc/dim/dim_entities.sql")
     
     marked_data = extract_data_postgresql(connection=env_data_warehouse, filename=file_marker_query, conditions={})['created_at'][0]
 

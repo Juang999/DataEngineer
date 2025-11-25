@@ -25,13 +25,6 @@ def load_dataframe(connection: Dict[str, Any], schema: str, tablename: str, mode
         pandas_df = df.to_pandas()
 
         # gunakan raw_connection agar punya .cursor()
-        # pandas_df.to_sql(
-        #     name=tablename,
-        #     con=engine,
-        #     schema=schema,
-        #     if_exists=mode,
-        #     index=False
-        # )
         with engine.connect() as conn:
             pandas_df.to_sql(
                 name=tablename,
