@@ -18,6 +18,8 @@ if __name__ == '__main__':
     env_spreadsheet = config.env_spreadsheet
     file_marker_query = Path(__file__).parent.parent.parent.joinpath(r"queries/inc/marker/dim/dim_products.sql")
     file_dim_query = Path(__file__).parent.parent.parent.joinpath(r"queries/inc/dim/dim_products.sql")
+    sheet_id = env_spreadsheet["spreadsheets_id"]["dim_database_dashboard"]
+    worksheet = env_spreadsheet["worksheets"]["dashboard_dim_product"]
 
     marked_data = extract_data_postgresql(connection=env_data_warehouse, filename=file_marker_query, conditions={})['created_at'][0]
 
@@ -26,7 +28,7 @@ if __name__ == '__main__':
     }
 
     extracted_data_exapro = extract_data_postgresql(connection=env_exapro, filename=file_dim_query, conditions=conditions)
-    extracted_data_spreadsheet = extract_data_spreadsheet(scopes=env_spreadsheet["scope"], sheet_id=env_spreadsheet["sheet_id"], worksheet="Dim Produk", credentials=env_spreadsheet["credentials"])
+    extracted_data_spreadsheet = extract_data_spreadsheet(scopes=env_spreadsheet["scope"], sheet_id=sheet_id, worksheet=worksheet, credentials=env_spreadsheet["credentials"])
 
     transformed_data = transform_data_products(dataframe_postgresql=extracted_data_exapro, dataframe_spreadsheet=extracted_data_spreadsheet)
 

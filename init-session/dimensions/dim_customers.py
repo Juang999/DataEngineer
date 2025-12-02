@@ -11,9 +11,11 @@ if __name__ == "__main__":
     env_spreadsheet = config.env_spreadsheet
     env_db_warehouse = config.env_destination_warehouse
     file_query = Path(__file__).parent.parent.joinpath("queries\init_dim_customers.sql")
+    sheet_id = env_spreadsheet["spreadsheets_id"]["dim_database_dashboard"]
+    worksheet = env_spreadsheet["worksheets"]["dashboard_dim_customer"]
 
     extracted_data_exapro = extract_data_postgresql(connection=env_db_exapro, filename=file_query, conditions={})
-    extracted_data_spreadsheet = extract_data_spreadsheet(scopes=env_spreadsheet["scope"], sheet_id=env_spreadsheet["sheet_id"], worksheet=env_spreadsheet["worksheet"], credentials=env_spreadsheet["credentials"])
+    extracted_data_spreadsheet = extract_data_spreadsheet(scopes=env_spreadsheet["scope"], sheet_id=sheet_id, worksheet=worksheet, credentials=env_spreadsheet["credentials"])
 
     transformed_data_customer = transform_dim_customers(df_postgresql=extracted_data_exapro, df_spreadsheet=extracted_data_spreadsheet)
 

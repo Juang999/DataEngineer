@@ -10,8 +10,6 @@ class Environment():
         scopes = [
             "https://www.googleapis.com/auth/spreadsheets",
         ]
-        sheet_id = "1a2IrbnJqoqAhBOx3OXUwiq0-aoissKaUXXI_GqbtAd8"
-        worksheet = "Dim Produk"
         path_credentials = str(Path(__file__).parent.joinpath("credentials.json"))
 
         self.source_exapro = {
@@ -43,7 +41,19 @@ class Environment():
 
         self.env_spreadsheet = {
             "scope": scopes,
-            "sheet_id": sheet_id,
-            "worksheet": worksheet,
-            "credentials": path_credentials
+            "credentials": path_credentials,
+            "worksheets": {
+                # worksheets Dim Database Dashboard
+                "dashboard_dim_customer": os.getenv("DASHBOARD_WS_DIM_CUSTOMER"),
+                "dashboard_dim_warehouse": os.getenv("DASHBOARD_WS_DIM_WAREHOUSE"),
+                "dashboard_dim_product": os.getenv("DASHBOARD_WS_DIM_PRODUCT"),
+                # worksheets Data Dimension
+                "dimension_dim_partner": os.getenv("DIMENSION_WS_DIM_PARTNER"),
+                "dimension_dim_warehouse": os.getenv("DIMENSION_WS_DIM_WAREHOUSE"),
+                "dimension_dim_product": os.getenv("DIMENSION_WS_DIM_PRODUCT")
+            },
+            "spreadsheets_id": {
+                "data_dimension": os.getenv("DIMENSION_SHEET_ID"),
+                "dim_database_dashboard": os.getenv("DASHBOARD_SHEET_ID")
+            }
         }
