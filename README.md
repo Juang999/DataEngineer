@@ -19,6 +19,7 @@
             <li>Transform data dimension locations</li>
             <li>Transform data dimension carbon copy</li>
             <li>Transform data dimension fund</li>
+            <li>Transform data dimension product spreadsheet</li>
         </ul>
     </li>
     <li>Fact
